@@ -22,6 +22,17 @@ Then add the sources to your code (adjust paths as needed) after adding the depe
 
 # Methods
 
+#### $adMob.position.AD_POSITION
+
+You have to replace AD_POSITION with one of the following values:
+NO_CHANGE, TOP_LEFT, TOP_CENTER, TOP_RIGHT, LEFT, CENTER, RIGHT, BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT, POS_XY
+
+#### $adMob.size.AD_SIZE
+
+You have to replace AD_SIZE with one of the following values:
+SMART_BANNER, BANNER, MEDIUM_RECTANGLE, FULL_BANNER, LEADERBOARD, SKYSCRAPER
+
+
 #### $adMob.setOptions(options);
 
 ```javascript
@@ -40,14 +51,68 @@ var options = {
 $adMob.setOptions(options);
 ```
 
-    $adMob.createBanner(adId/options, success, fail);
-    $adMob.removeBanner();
-    $adMob.showBanner(position);
-    $adMob.showBannerAtXY(x, y);
-    $adMob.hideBanner();
+#### $adMob.createBanner(adId/options);
 
-    $adMob.prepareInterstitial(adId/options, success, fail);
-    $adMob.showInterstitialAd();
+```javascript
+var data = {
+    adId: string,       // your ad key
+    adSize: string,   // banner type size
+    width: integer,   // banner width, if set adSize to 'CUSTOM'
+    height: integer,  // banner height, if set adSize to 'CUSTOM'
+    position: integer, // default position
+    x: integer,   // default X of banner
+    y: integer,   // default Y of banner
+    isTesting: boolean,   // if set to true, to receive test ads
+    autoShow: boolean,    // if set to true, no need call showBanner or showInterstitial
+    adExtra: {}
+};
+
+$adMob.createBanner(data);
+```
+
+#### $adMob.removeBanner();
+```javascript
+$adMob.removeBanner();
+```
+
+#### $adMob.showBanner(position);
+```javascript
+$adMob.showBanner(position);
+```
+
+#### $adMob.showBanner(position);
+```javascript
+$adMob.showBanner(position);
+```
+
+#### $adMob.showBannerAtXY(x, y);
+```javascript
+$adMob.showBannerAtXY(x, y);
+```
+
+#### $adMob.prepareInterstitial(adId/options);
+```javascript
+var data = {
+    adId: string,       // your ad key
+    adSize: string,   // banner type size
+    width: integer,   // banner width, if set adSize to 'CUSTOM'
+    height: integer,  // banner height, if set adSize to 'CUSTOM'
+    position: integer, // default position
+    x: integer,   // default X of banner
+    y: integer,   // default Y of banner
+    isTesting: boolean,   // if set to true, to receive test ads
+    autoShow: boolean,    // if set to true, no need call showBanner or showInterstitial
+    adExtra: {}
+};
+
+$adMob.prepareInterstitial(data);
+```
+
+#### $adMob.showInterstitialAd();
+```javascript
+$adMob.showInterstitialAd();
+```
+
 
 
 # How to use with Ionic Framework
