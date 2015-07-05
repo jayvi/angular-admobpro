@@ -20,6 +20,33 @@ Then add the sources to your code (adjust paths as needed) after adding the depe
     <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
 ```
 
+# Methods
+
+## $adMob.setOptions(options);
+
+    var options = {
+        adSize: string,   // banner type size
+        width: integer,   // banner width, if set adSize to 'CUSTOM'
+        height: integer,  // banner height, if set adSize to 'CUSTOM'
+        position: integer, // default position
+        x: integer,   // default X of banner
+        y: integer,   // default Y of banner
+        isTesting: boolean,   // if set to true, to receive test ads
+        autoShow: boolean,    // if set to true, no need call showBanner or showInterstitial
+        adExtra: {}
+    };
+
+    $adMob.setOptions(options);
+
+    $adMob.createBanner(adId/options, success, fail);
+    $adMob.removeBanner();
+    $adMob.showBanner(position);
+    $adMob.showBannerAtXY(x, y);
+    $adMob.hideBanner();
+
+    $adMob.prepareInterstitial(adId/options, success, fail);
+    $adMob.showInterstitialAd();
+
 
 # How to use with Ionic Framework
 
