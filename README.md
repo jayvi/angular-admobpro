@@ -22,7 +22,7 @@ Then add the sources to your code (adjust paths as needed) after adding the depe
 
 # Methods
 
-## #$adMob.setOptions(options);
+#### $adMob.setOptions(options);
 
 ```javascript
 var options = {
