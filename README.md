@@ -51,39 +51,40 @@ $adMob.setOptions(options);
 
 
 # How to use with Ionic Framework
+```javascript
+angular.module('yourApp', ['ionic', 'admob'])
+    .run(function($rootScope, $state, $log, $adMob) {
 
-    angular.module('yourApp', ['ionic', 'admob'])
-        .run(function($rootScope, $state, $log, $adMob) {
+        $ionicPlatform.ready(function() {
+            // AdMob
+            if(window.AdMob) {
+                var admobid;
 
-            $ionicPlatform.ready(function() {
-                // AdMob
-                if(window.AdMob) {
-                    var admobid;
-
-                    if (device.platform == "Android") {
-                        admobid = { // for Android
-                            banner: 'ca-app-pub-your-ad-key',
-                            interstitial: 'ca-app-pub-your-ad-key'
-                        };
-                    } else {
-                        admobid = { // for iOS
-                            banner: 'ca-app-pub-your-ad-key',
-                            interstitial: 'ca-app-pub-your-ad-key'
-                        };
-                    }
-
-                    $adMob.createBanner( {
-                        adId: admobid.banner,
-                        autoShow: true,
-                        bgColor: 'black',
-                        position: $adMob.position.BOTTOM_CENTER
-                    });
-
-                    $adMob.prepareInterstitial({
-                        adId: admobid.interstitial,
-                        autoShow: false
-                    });
+                if (device.platform == "Android") {
+                    admobid = { // for Android
+                        banner: 'ca-app-pub-your-ad-key',
+                        interstitial: 'ca-app-pub-your-ad-key'
+                    };
+                } else {
+                    admobid = { // for iOS
+                        banner: 'ca-app-pub-your-ad-key',
+                        interstitial: 'ca-app-pub-your-ad-key'
+                    };
                 }
-            });
+
+                $adMob.createBanner( {
+                    adId: admobid.banner,
+                    autoShow: true,
+                    bgColor: 'black',
+                    position: $adMob.position.BOTTOM_CENTER
+                });
+
+                $adMob.prepareInterstitial({
+                    adId: admobid.interstitial,
+                    autoShow: false
+                });
+            }
         });
+    });
+```
 
